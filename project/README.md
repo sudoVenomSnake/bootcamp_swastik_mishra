@@ -19,7 +19,11 @@ Metric is a variant of the Sharpe ratio, computed by dividing the mean Spearman 
 Advanced AI algorithms and high-precision models are currently employed for commodity market prediction, utilizing historical price datasets from LME, JPX, US Stock, and Forex. While these models show promise, they often encounter limitations in consistently achieving high accuracy across diverse market conditions and over extended time horizons. Existing models may exhibit over-reliance on specific data patterns, lacking the adaptability required to navigate the dynamic and constantly evolving nature of financial markets.
 
 ## Repo Plan
+Paths for these are in .env
 /data/ - Kaggle competition data, will have to add to .gitignore
+/data/raw/ - for raw data
+/data/processed/ - for validated/verified processed data
+- Formats used -> CSV (most common storage type) and Parquet (compressed storage)
 /src/ - Production app code
 /notebooks/ - Primary code-base
 /docs/ - Documenting steps

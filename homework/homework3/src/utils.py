@@ -1,7 +1,4 @@
-from dotenv import load_dotenv
 import pandas as pd
-
-load_dotenv("../.env")
 
 def get_summary_stats(df : pd.DataFrame) -> pd.DataFrame:
     describe = df.describe().reset_index()

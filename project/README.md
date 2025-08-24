@@ -1,6 +1,9 @@
 # Commodity Prediction
 **Stage:** Problem Framing & Scoping (Stage 01)
 
+### Updates
+- Added eda.py in /src/, an interactive app to check plots and potential feature relationships
+
 ## Problem Statement
 Developing a model capable of predicting future commodity returns using historical data from London Metal Exchange (LME), Japan Exchange Group (JPX), US Stock, and Forex markets. Getting these predictions right has significant implications for both businesses and the global economy. Inaccurate forecasts can lead to suboptimal trading strategies, poor investment decisions, and increased financial risk for companies involved in commodity markets.
 

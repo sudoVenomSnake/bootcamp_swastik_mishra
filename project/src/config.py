@@ -1,8 +1,11 @@
-from dotenv import load_dotenv
 import pandas as pd
+import numpy as np
 
-load_dotenv("../.env")
+def format_date(date_like) -> str:
+    """Coerce to YYYY-MM-DD string."""
+    return pd.to_datetime(date_like).strftime("%Y-%m-%d")
 
-def get_summary_stats(df : pd.DataFrame) -> pd.DataFrame:
-    describe = df.describe().reset_index()
-    return describe
+def train_test_split_time(df : pd.DataFrame, split : float = 0.8):
+    n = len(df)
+    cut = int(n * split)
+    return df.iloc[:cut].copy(), df.iloc[cut:].copy()

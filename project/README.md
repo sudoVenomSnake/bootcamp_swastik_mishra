@@ -1,32 +1,45 @@
-# Commodity Prediction
-**Stage:** Problem Framing & Scoping (Stage 01)
-
-### Updates
-- Added eda.py in /src/, an interactive app to check plots and potential feature relationships
+# Stock Forecasting with Yahoo Finance & Scikit-Learn
+**Stage:** COMPLETED
 
 ## Problem Statement
-Developing a model capable of predicting future commodity returns using historical data from London Metal Exchange (LME), Japan Exchange Group (JPX), US Stock, and Forex markets. Getting these predictions right has significant implications for both businesses and the global economy. Inaccurate forecasts can lead to suboptimal trading strategies, poor investment decisions, and increased financial risk for companies involved in commodity markets.
+Build a reproducible, end‑to‑end workflow to fetch equities data from Yahoo Finance, engineer predictive features, train a machine learning model, and deliver interactive predictions.
 
 ## Stakeholder & User
-Accurate commodity price prediction is crucial for reducing financial risk and ensuring stability in the global market. Currently, the inherent volatility and unpredictability of commodity prices create several problems - resource allocation, budgeting, and investment planning, often resulting in financial losses and inefficient operations
+- **Stakeholders:** Data science team, product managers, retail investing group.
+- **Primary Users:** Analysts and technically minded investors who want quick model-driven signals without running notebooks.
 
 ## Useful Answer & Decision
-Useful Answer - **Predictive**
-Metric is a variant of the Sharpe ratio, computed by dividing the mean Spearman rank correlation between the predictions and targets by the standard deviation.
+- Provide a trained model that predicts **next-day % return** from recent technical indicators.
+- Allow a user to type a ticker in a Streamlit app and instantly see the model’s predicted next‑day return, recent features, and backtest metrics.
 
 ## Assumptions & Constraints
- - Historical market data is available, accurate and sufficient for modeling.
- - Past price patterns contain useful predictive information for future returns.
+- Uses `yfinance` for price data (subject to Yahoo TOS and rate limits).
+- Modeling target is next-day arithmetic return from adjusted close.
+- Baseline model uses scikit‑learn (RandomForestRegressor) with simple technical features.
+- This project takes a very naive approach to prediction, results might not be the best.
+- Project is Python 3.13.4; notebooks run locally.
 
 ## Known Unknowns / Risks
-Advanced AI algorithms and high-precision models are currently employed for commodity market prediction, utilizing historical price datasets from LME, JPX, US Stock, and Forex. While these models show promise, they often encounter limitations in consistently achieving high accuracy across diverse market conditions and over extended time horizons. Existing models may exhibit over-reliance on specific data patterns, lacking the adaptability required to navigate the dynamic and constantly evolving nature of financial markets.
+- Data quality drifts (splits/dividends adjustments) may affect reproducibility.
+- Predictive power may be low.
+- Yahoo endpoints and ticker symbols can change.
 
 ## Repo Plan
-Paths for these are in .env
-/data/ - Kaggle competition data, will have to add to .gitignore
-/data/raw/ - for raw data
-/data/processed/ - for validated/verified processed data
-- Formats used -> CSV (most common storage type) and Parquet (compressed storage)
-/src/ - Production app code
-/notebooks/ - Primary code-base
-/docs/ - Documenting steps
+```
+data/
+  raw/
+  preprocessed/
+notebooks/
+  data_fetching.ipynb
+  data_eda.ipynb
+  feature_engineering.ipynb
+  model_building.ipynb
+  results_analysis.ipynb
+src/
+  config.py
+reports/
+  {ticker}_metrics.json
+model/
+  {ticker}_model.pkl
+README.md
+```
